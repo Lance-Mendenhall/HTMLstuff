@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GOLF!!!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Let's play golf!</h2>
+    <h3>Holes</h3>
+    <p id="holes">
+        The array for all 18 holes goes here. 
+    </p>
+    <p><input type="text" value="sum goes here" id = "sum"></p>
+    <p><input type="text" value="avg goes here" id = "avg"></p>
+    <button onclick="fillArraySumAvg()">Play golf!</button>
+
+    <script>
+    
+    function fillArraySumAvg() {
+        var golfArray = [];
+
+        var total = 0;
+
+        for(var i=0;i<18;i++) {
+            golfArray[i]=genStrokesPerHole();
+            total+=golfArray[i];
+        }
+        var avg = total / 18;
+        console.log(holes, total, avg);
+
+        $("#holes").text(golfArray);   // The text (paaragraph) with the id of holes get overwritten by golfArray
+        $("#sum").val(total);  //The text box with id sum gets the val of total
+        $("#avg").val(avg);
+    }
+    
+    function genStrokesPerHole() {
+        return Math.floor(Math.random() * 7) + 1;
+    }
+    
+    </script>
+    
+</body>
+</html>

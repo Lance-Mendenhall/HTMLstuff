@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bowling for Dollars</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h2>Let's Get Ready To Bowl!</h2>
+    <h3>Frames</h3>
+    <p id="frames">
+        The frames arrays goes here.
+    </p>
+    <p>Sum: <input type="text" id="sum"> </p>
+    <p>Avg: <input type="text" id="avg"> </p>
+    <button onclick="fillArraySumAndAvg()">Let's bowl!</button>
+    
+    <script>
+        function fillArraySumAndAvg() {
+            // var framesCtrl = getRefById("frames");
+            // var sumCtrl = getRefById("sum");
+            // var avgCtrl = getRefById("avg");
+           
+            var scores=[];
+
+            var sum=0;
+
+            for (var idx=0;idx < 10; idx++) {
+                let s = getRandomNumber();
+                scores.push(s);
+                sum+=s;
+            }
+            var avg = sum / 10;
+            console.log(scores, sum, avg);
+
+            $("#frames").text(scores);
+            $("#sum").val(sum);
+            $("#avg").val(avg);
+
+        }
+
+        // framesCtrl.textContent = scores.join();
+        // sumCtrl.value = sum;
+        // avgCtrl.value = avg;
+
+        
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 11);
+        }
+
+        function getRefById(id) {
+            return document.getElementById(id);
+        }
+    </script>
+
+</body>
+</html>
